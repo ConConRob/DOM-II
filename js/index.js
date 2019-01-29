@@ -18,12 +18,14 @@ const contentPickSection = qs('.content-pick');
 function toggleGreyImage(event) {
   event.target.classList.toggle('hover-img');
 }
+
 // hide or show nav bar depending on scroll direction
 function hideOrShowNavBar(event) {
   if (event.deltaY > 0) {
-    header.classList.add('hide-header');
+    // header.classList.add('hide-header');
+    TweenMax.to('.main-navigation', 2, { y: -200 });
   } else {
-    header.classList.remove('hide-header');
+    TweenMax.to('.main-navigation', 2, { y: 0 });
   }
 }
 // show form
