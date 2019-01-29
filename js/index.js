@@ -102,4 +102,6 @@ window.addEventListener('keypress', checkSecretAndUnicornThePage);
 
 //TRYING OUT GREENSOCK
 
-TweenMax.from('.nav', 2, { x: 1000 });
+TweenMax.from('.nav', 2, { x: 700 });
+TweenMax.from('.logo-heading', 2, { x: -700 });
+TweenMax.from('.main-navigation', 2, { y: -200 });
