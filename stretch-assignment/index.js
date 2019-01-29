@@ -1,3 +1,5 @@
+// ADD GAME OVER IF BLOCK HITS THE GROUND? IF SO RETURN SCORE FROM DISTANCE OF LEFT MOST BLOCK
+// ADD HIT DET. PUSH OTHER BLOCKS
 const blockRed = document.querySelector('.block--red');
 const blockBlue = document.querySelector('.block--blue');
 const blockGreen = document.querySelector('.block--green');
@@ -20,9 +22,9 @@ function goUp({ target }) {
   target.verticalDistance += vertGain;
 }
 
-function startGoingLeft({ target }) {
-  const leftInterval = setInterval(() => {
-    // BOXES ONLY GO LEFT WHEN OFF THE GROUND
+function startGoingRight({ target }) {
+  const rightInterval = setInterval(() => {
+    // BOXES ONLY GO right WHEN OFF THE GROUND
     console.log(target.verticalDistance);
     if(target.verticalDistance < 0) {
       TweenMax.to(target, vertTime, { x: horizGain + target.horizontalDistance });
@@ -30,18 +32,18 @@ function startGoingLeft({ target }) {
     }
   }, horizTime);
   // SET UP STOP WHEN LEAVING BLOCK
-  target.addEventListener('mouseout', () => clearInterval(leftInterval));
+  target.addEventListener('mouseout', () => clearInterval(rightInterval));
 }
 
 blocks.forEach((block) => {
   // keep track of spot
   block.verticalDistance = vertStart;
-  TweenMax.to(block, .05, { y: vertStart });
+  TweenMax.to(block, 0.001, { y: vertStart });
   block.horizontalDistance = 0;
   // make it fly
-  block.addEventListener('click', goUp);
-  // make it go left
-  block.addEventListener('mouseover', startGoingLeft);
+  block.addEventListener('mousedown', goUp);
+  // make it go right
+  block.addEventListener('mouseover', startGoingRight);
 
   // ADD SOME GRAVITY
   setInterval(() => {
