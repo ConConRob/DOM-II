@@ -6,6 +6,7 @@ const blockGray = document.querySelector('.block--gray');
 const blocks = document.querySelectorAll('.block');
 // variables
 let lowestOrder = 0;
+const vertStart = -200;
 const vertGain = -30;
 const vertTime = 0.5;
 const horizGain = 50;
@@ -21,8 +22,12 @@ function goUp({ target }) {
 
 function startGoingLeft({ target }) {
   const leftInterval = setInterval(() => {
-    TweenMax.to(target, vertTime, { x: horizGain + target.horizontalDistance });
-    target.horizontalDistance += horizGain;
+    // BOXES ONLY GO LEFT WHEN OFF THE GROUND
+    console.log(target.verticalDistance);
+    if(target.verticalDistance < 0) {
+      TweenMax.to(target, vertTime, { x: horizGain + target.horizontalDistance });
+      target.horizontalDistance += horizGain;
+    }
   }, horizTime);
   // SET UP STOP WHEN LEAVING BLOCK
   target.addEventListener('mouseout', () => clearInterval(leftInterval));
@@ -30,7 +35,8 @@ function startGoingLeft({ target }) {
 
 blocks.forEach((block) => {
   // keep track of spot
-  block.verticalDistance = 0;
+  block.verticalDistance = vertStart;
+  TweenMax.to(block, .05, { y: vertStart });
   block.horizontalDistance = 0;
   // make it fly
   block.addEventListener('click', goUp);
