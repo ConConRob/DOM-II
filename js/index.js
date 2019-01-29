@@ -24,8 +24,12 @@ function hideOrShowNavBar(event) {
   if (event.deltaY > 0) {
     // header.classList.add('hide-header');
     TweenMax.to('.main-navigation', 2, { y: -200 });
+    TweenMax.to('.nav', 4, { x: 700 });
+    TweenMax.to('.logo-heading', 4, { x: -700 });
   } else {
     TweenMax.to('.main-navigation', 2, { y: 0 });
+    TweenMax.to('.nav', 2, { x: 0 });
+    TweenMax.to('.logo-heading', 2, { x: 0 });
   }
 }
 // show form
