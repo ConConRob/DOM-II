@@ -92,7 +92,15 @@
     border-top: 2px dashed @navigation-border;
     display: flex;
     justify-content: space-between;
-
+    flex-wrap: wrap;
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .hidden {
+      display: none;
+    }
     @media @mobile {
       flex-wrap: wrap;
     }

@@ -8,7 +8,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
-
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
   <script src="js/index.js" async></script>
 
   <!--[if lt IE 9]>
@@ -32,7 +32,9 @@
      
   <div class="container home">
     <header class="intro">
-      <img src="img/fun-bus.jpg" alt="bus in the sand">
+      <div class="dropArea">
+          <img src="img/fun-bus.jpg" alt="bus in the sand">
+      </div>
       <h2>Welcome To Fun Bus!</h2>
       <p>Traveling expedition modern, clean webdesign blogger clean website theme website modern. Design pretty design, travelblogger adventure WordPress wanderlust theme blogger website expedition theme travelblogger. Adventure fun traveler pretty design website expedition.</p>
     </header>
@@ -43,12 +45,16 @@
         <p>Expedition colorful design simple excursion blogger blogger design WordPress design, design organized website theme.</p>
       </div>
       <div class="img-content">
-        <img src="img/adventure.jpg" alt="Let's go on an adventure!">
+        <div class="dropArea">
+            <img src="img/adventure.jpg" alt="Let's go on an adventure!">
+        </div>
       </div>
     </section>
     <section class="content-section inverse-content">
       <div class="img-content">
-          <img src="img/fun.jpg" class="img-fluid rounded" alt="Lets have fun!">
+        <div class="dropArea">
+            <img src="img/fun.jpg" class="img-fluid rounded" alt="Lets have fun!">
+        </div>
       </div>
       <div class="text-content">
         <h2>Adventure Awaits</h2>
@@ -60,7 +66,9 @@
     <section class="content-destination">
       <h2>Pick Your Destination</h2>
       <p>Expedition excursion design darn excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.</p>
-      <img src="img/destination.jpg" alt="Second slide">
+      <div class="dropArea">
+          <img class="dropArea" src="img/destination.jpg" alt="Second slide">
+      </div>
     </section>
     <section class="content-pick">
 
@@ -79,7 +87,15 @@
         <p>Expedition excursion design excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.</p>
         <div class="btn">Sign Me Up!</div>
       </div>
+      <form class = 'hidden'>
+        <input type="text" placeholder="Name">
+        <input type ="email" placeholder="E-Mail">
+        <input type ="number" placeholder="Phone Number">
+        <textarea placeholder="Message"></textarea>
+        <button class="btn" type ="submit">Send!</button>
+      </form>
     </section>
+    
   </div><!-- container -->
 
   <footer class="footer">
