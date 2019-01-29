@@ -13,7 +13,7 @@ Topics:
 ## Objectives
  * Manipulate the DOM in response to user events using JavaScript
  * Use event listeners to handle events
-
+ 
 ## Beginning Project
  * You can open your `index.html` file in your browser to see your work
  * All your work will be done in `index.js`

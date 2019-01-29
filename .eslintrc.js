@@ -8,5 +8,7 @@ module.exports = {
         "linebreak-style": 0,
         "quote-props": 0,
         "quotes": 0,
+        "no-plusplus":0,
+        "no-param-reassign":0,
     }
 };
