@@ -1,13 +1,13 @@
+// TO DO
 // ADD GAME OVER IF BLOCK HITS THE GROUND? IF SO RETURN SCORE FROM DISTANCE OF LEFT MOST BLOCK
 // ADD HIT DET. PUSH OTHER BLOCKS
-const blockRed = document.querySelector('.block--red');
-const blockBlue = document.querySelector('.block--blue');
-const blockGreen = document.querySelector('.block--green');
-const blockPink = document.querySelector('.block--pink');
-const blockGray = document.querySelector('.block--gray');
+// const blockRed = document.querySelector('.block--red');
+// const blockBlue = document.querySelector('.block--blue');
+// const blockGreen = document.querySelector('.block--green');
+// const blockPink = document.querySelector('.block--pink');
+// const blockGray = document.querySelector('.block--gray');
 const blocks = document.querySelectorAll('.block');
 // variables
-let lowestOrder = 0;
 const vertStart = -200;
 const vertGain = -30;
 const vertTime = 0.5;
@@ -17,7 +17,6 @@ const gravityTime = 5;
 const gravityDist = 0.1;
 // functions
 function goUp({ target }) {
-  
   TweenMax.to(target, vertTime, { y: vertGain + target.verticalDistance });
   target.verticalDistance += vertGain;
 }
@@ -26,7 +25,7 @@ function startGoingRight({ target }) {
   const rightInterval = setInterval(() => {
     // BOXES ONLY GO right WHEN OFF THE GROUND
     console.log(target.verticalDistance);
-    if(target.verticalDistance < 0) {
+    if (target.verticalDistance < 0) {
       TweenMax.to(target, vertTime, { x: horizGain + target.horizontalDistance });
       target.horizontalDistance += horizGain;
     }
