@@ -8,20 +8,35 @@ const blocks = document.querySelectorAll('.block');
 let lowestOrder = 0;
 const vertGain = -30;
 const vertTime = 0.5;
+const horizGain = 50;
+const horizTime = 100;
 const gravityTime = 5;
 const gravityDist = 0.1;
 // functions
-function goUp(event) {
-  const { target } = event;
+function goUp({ target }) {
+  
   TweenMax.to(target, vertTime, { y: vertGain + target.verticalDistance });
   target.verticalDistance += vertGain;
 }
 
+function startGoingLeft({ target }) {
+  const leftInterval = setInterval(() => {
+    TweenMax.to(target, vertTime, { x: horizGain + target.horizontalDistance });
+    target.horizontalDistance += horizGain;
+  }, horizTime);
+  // SET UP STOP WHEN LEAVING BLOCK
+  target.addEventListener('mouseout', () => clearInterval(leftInterval));
+}
+
 blocks.forEach((block) => {
+  // keep track of spot
   block.verticalDistance = 0;
   block.horizontalDistance = 0;
-  //
+  // make it fly
   block.addEventListener('click', goUp);
+  // make it go left
+  block.addEventListener('mouseover', startGoingLeft);
+
   // ADD SOME GRAVITY
   setInterval(() => {
     TweenMax.to(block, vertTime, { y: gravityDist + block.verticalDistance });
