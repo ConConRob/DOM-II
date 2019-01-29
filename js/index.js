@@ -99,3 +99,7 @@ contentPickSection.addEventListener('dblclick', (event) => {
   console.log(`${event.target} ran`);
 });
 window.addEventListener('keypress', checkSecretAndUnicornThePage);
+
+//TRYING OUT GREENSOCK
+
+TweenMax.from('.nav', 2, { x: 1000 });
